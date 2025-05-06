@@ -77,7 +77,8 @@ function fetchTopScorers(league, season) {
 
         const li = document.createElement("li");
         li.innerHTML = `
-          <img src="${photo}" alt="Face">
+          <img src="${photo}" alt="Face" 
+               onerror="this.onerror=null;this.src='https://via.placeholder.com/35?text=👤';">
           <span>${name} – ${goals} goals</span>
         `;
         list.appendChild(li);
