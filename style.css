@@ -1,4 +1,3 @@
-/* General */
 body {
     font-family: 'Segoe UI', sans-serif;
     background: #f0f2f5;
@@ -34,10 +33,10 @@ body {
     padding: 10px;
     background-color: #fff;
     border-bottom: 1px solid #ccc;
+    gap: 10px;
   }
   
   input, select, button {
-    margin: 10px;
     padding: 10px;
     font-size: 1rem;
     border-radius: 5px;
@@ -86,6 +85,21 @@ body {
     text-align: center;
   }
   
+  #standings-table img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin-right: 8px;
+  }
+  
+  .team-flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  /* Top Scorers */
   #topscorers-list {
     list-style: none;
     padding-left: 0;
@@ -93,14 +107,46 @@ body {
   }
   
   #topscorers-list li {
-    padding: 8px;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
     border-bottom: 1px solid #eee;
+    gap: 10px;
   }
   
+  #topscorers-list img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  /* Footer */
   footer {
     text-align: center;
     font-size: 0.9rem;
     padding: 15px;
     background-color: #1e2a38;
     color: #ccc;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 600px) {
+    .input-section,
+    .controls {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    table, th, td {
+      font-size: 0.85rem;
+    }
+  
+    header h1 {
+      font-size: 1.5rem;
+    }
+  
+    #topscorers-list li {
+      font-size: 0.9rem;
+    }
   }

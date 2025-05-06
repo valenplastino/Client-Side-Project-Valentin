@@ -1,15 +1,15 @@
 let apiKey = "";
 
 document.getElementById("save-key").addEventListener("click", () => {
-  apiKey = document.getElementById("api-key").value;
+  apiKey = "483c44bf88d81378fe58a91970987cd8";
   sessionStorage.setItem("soccer_api_key", apiKey);
-  alert("API key saved.");
+  alert("API key saved! You can now load data.");
 });
 
 document.getElementById("load-data").addEventListener("click", () => {
   apiKey = sessionStorage.getItem("soccer_api_key");
   if (!apiKey) {
-    alert("Please enter your API key first.");
+    alert("Click 'Save Key' first.");
     return;
   }
 
@@ -26,12 +26,23 @@ function fetchStandings(league, season) {
   })
     .then(res => res.json())
     .then(data => {
-      const teams = data.response[0].league.standings[0];
       const tbody = document.querySelector("#standings-table tbody");
       tbody.innerHTML = "";
+
+      if (!data.response || data.response.length === 0) {
+        tbody.innerHTML = "<tr><td colspan='5'>No data found</td></tr>";
+        return;
+      }
+
+      const teams = data.response[0].league.standings[0];
       teams.forEach(team => {
         const row = `<tr>
-          <td>${team.team.name}</td>
+          <td>
+            <div class="team-flex">
+              <img src="${team.team.logo}" alt="Logo">
+              <span>${team.team.name}</span>
+            </div>
+          </td>
           <td>${team.points}</td>
           <td>${team.all.win}</td>
           <td>${team.all.draw}</td>
@@ -39,6 +50,9 @@ function fetchStandings(league, season) {
         </tr>`;
         tbody.innerHTML += row;
       });
+    })
+    .catch(err => {
+      console.error("Standings error:", err);
     });
 }
 
@@ -50,10 +64,26 @@ function fetchTopScorers(league, season) {
     .then(data => {
       const list = document.getElementById("topscorers-list");
       list.innerHTML = "";
-      data.response.slice(0, 10).forEach(item => {
+
+      if (!data.response || data.response.length === 0) {
+        list.innerHTML = "<li>No data found</li>";
+        return;
+      }
+
+      data.response.slice(0, 10).forEach(player => {
+        const name = player.player.name;
+        const goals = player.statistics[0].goals.total;
+        const photo = player.player.photo;
+
         const li = document.createElement("li");
-        li.textContent = `${item.player.name} - ${item.statistics[0].goals.total} goals`;
+        li.innerHTML = `
+          <img src="${photo}" alt="Face">
+          <span>${name} – ${goals} goals</span>
+        `;
         list.appendChild(li);
       });
+    })
+    .catch(err => {
+      console.error("Top scorers error:", err);
     });
 }
