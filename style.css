@@ -1,0 +1,106 @@
+/* General */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #222;
+  }
+  
+  header {
+    background-color: #1e2a38;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  header p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  .input-section,
+  .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  input, select, button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #1e2a38;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #304256;
+  }
+  
+  main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .data-box {
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+  }
+  
+  #topscorers-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+  }
+  
+  #topscorers-list li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 15px;
+    background-color: #1e2a38;
+    color: #ccc;
+  }

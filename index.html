@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚽ Soccer Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>⚽ Soccer Dashboard</h1>
+    <p>Explore live standings and top scorers by league and season</p>
+  </header>
+
+  <section class="input-section">
+    <input id="api-key" type="password" placeholder="Enter your API Key here" />
+    <button id="save-key">Save Key</button>
+  </section>
+
+  <section class="controls">
+    <label for="league-select">League:</label>
+    <select id="league-select">
+      <option value="39">Premier League</option>
+      <option value="140">La Liga</option>
+      <option value="135">Serie A</option>
+    </select>
+
+    <label for="season-select">Season:</label>
+    <select id="season-select">
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+    </select>
+
+    <button id="load-data">Load Data</button>
+  </section>
+
+  <main>
+    <section class="data-box">
+      <h2>📊 League Standings</h2>
+      <table id="standings-table">
+        <thead>
+          <tr><th>Team</th><th>PTS</th><th>W</th><th>D</th><th>L</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="data-box">
+      <h2>🏅 Top Scorers</h2>
+      <ul id="topscorers-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for the API Frontend Challenge | <a href="https://www.api-football.com/" target="_blank">API-Football</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
