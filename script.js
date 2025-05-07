@@ -1,7 +1,13 @@
 let apiKey = "";
 
 document.getElementById("save-key").addEventListener("click", () => {
-  apiKey = "483c44bf88d81378fe58a91970987cd8";
+  const userInputKey = document.getElementById("api-key").value.trim();
+  if (!userInputKey) {
+    alert("Please enter a valid API key.");
+    return;
+  }
+
+  apiKey = userInputKey;
   sessionStorage.setItem("soccer_api_key", apiKey);
   alert("API key saved! You can now load data.");
 });
@@ -9,7 +15,7 @@ document.getElementById("save-key").addEventListener("click", () => {
 document.getElementById("load-data").addEventListener("click", () => {
   apiKey = sessionStorage.getItem("soccer_api_key");
   if (!apiKey) {
-    alert("Click 'Save Key' first.");
+    alert("Click 'Save Key' and enter your API key first.");
     return;
   }
 
